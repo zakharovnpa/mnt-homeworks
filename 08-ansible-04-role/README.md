@@ -17,11 +17,60 @@
        name: elastic 
    ```
 2. При помощи `ansible-galaxy` скачать себе эту роль.
+```ps
+root@PC-Ubuntu:~/ansible-learning/yandex-cloud/Epsilon/Galaxy# ansible-galaxy install -r requirements.yml -p elasticsearch_role
+Starting galaxy role install process
+- extracting elastic to /root/ansible-learning/yandex-cloud/Galaxy/elasticsearch_role/elastic
+- elastic (2.1.4) was installed successfully
+
+```
+
 3. Создать новый каталог с ролью при помощи `ansible-galaxy role init kibana-role`.
+```ps
+root@PC-Ubuntu:~/ansible-learning/yandex-cloud/Galaxy# ansible-galaxy role init kibana_role
+- Role kibana_role was created successfully
+root@PC-Ubuntu:~/ansible-learning/yandex-cloud/Galaxy# 
+root@PC-Ubuntu:~/ansible-learning/yandex-cloud/Galaxy# ls -l
+итого 28
+drwxr-xr-x  3 root root 4096 фев 20 21:06 elasticsearch_role
+drwxr-xr-x  3 root root 4096 фев 19 06:21 inventory
+drwxr-xr-x 10 root root 4096 фев 20 21:11 kibana_role
+-rw-r--r--  1 root root  530 фев 20 20:35 README.md
+-rw-r--r--  1 root root  121 фев 20 20:36 requirements.yml
+-rw-r--r--  1 root root 3012 фев 19 16:16 site.yml
+drwxr-xr-x  2 root root 4096 фев 19 22:01 templates
+
+
+```
+
 4. На основе tasks из старого playbook заполните новую role. Разнесите переменные между `vars` и `default`. 
+
+
 5. Перенести нужные шаблоны конфигов в `templates`.
+
+
 6. Создать новый каталог с ролью при помощи `ansible-galaxy role init filebeat-role`.
+```ps
+root@PC-Ubuntu:~/ansible-learning/yandex-cloud/Galaxy# ansible-galaxy role init filebeat_role
+- Role filebeat_role was created successfully
+root@PC-Ubuntu:~/ansible-learning/yandex-cloud/Galaxy# 
+root@PC-Ubuntu:~/ansible-learning/yandex-cloud/Galaxy# ls -l
+итого 32
+drwxr-xr-x 10 root root 4096 фев 20 21:12 elasticsearch_role
+drwxr-xr-x 10 root root 4096 фев 20 21:13 filebeat_role
+drwxr-xr-x  3 root root 4096 фев 19 06:21 inventory
+drwxr-xr-x 10 root root 4096 фев 20 21:11 kibana_role
+-rw-r--r--  1 root root  530 фев 20 20:35 README.md
+-rw-r--r--  1 root root  121 фев 20 20:36 requirements.yml
+-rw-r--r--  1 root root 3012 фев 19 16:16 site.yml
+drwxr-xr-x  2 root root 4096 фев 19 22:01 templates
+
+```
+
 7. На основе tasks из старого playbook заполните новую role. Разнесите переменные между `vars` и `default`. 
+
+
+
 8. Перенести нужные шаблоны конфигов в `templates`.
 9. Описать в `README.md` обе роли и их параметры.
 10. Выложите все roles в репозитории. Проставьте тэги, используя семантическую нумерацию.
